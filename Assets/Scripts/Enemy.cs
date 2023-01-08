@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     private void TakeDamage(float _damages)
     {
         health -= _damages;
-        Destroy(gameObject);
     }
 
     private void OnDisable()

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firepoint;
+    [SerializeField] VisualEffect lvlUpVfx;
 
     // Update is called once per frame
     void Update()
@@ -26,7 +28,7 @@ public class Player : MonoBehaviour
     {
         if(Input.touchCount > 0)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
@@ -34,9 +36,14 @@ public class Player : MonoBehaviour
                 {
                     Vector3 positionToLookAt = hit.point;
 
-                    agent.transform.LookAt(positionToLookAt);
+                    agent.transform.LookAt(new Vector3(positionToLookAt.x, transform.position.y, positionToLookAt.z));
                 }
             }
         }
+    }
+
+    private void LvlUp()
+    {
+        lvlUpVfx.Play();
     }
 }

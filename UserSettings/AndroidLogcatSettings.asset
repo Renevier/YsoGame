@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "i7bueymzkbcyy9sc",
         "name": "com.DefaultCompany.YsoGame",
-        "processId": 29073,
+        "processId": 20539,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -30,6 +30,12 @@
             "deviceId": "i7bueymzkbcyy9sc",
             "name": "com.DefaultCompany.YsoGame",
             "processId": 29073,
+            "exited": false
+        },
+        {
+            "deviceId": "i7bueymzkbcyy9sc",
+            "name": "com.DefaultCompany.YsoGame",
+            "processId": 20539,
             "exited": false
         }
     ],
