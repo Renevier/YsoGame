@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firepoint;
-    [SerializeField] VisualEffect lvlUpVfx;
+    [SerializeField] ParticleSystem lvlUpVfx;
+    [SerializeField] ParticleSystem hurtVfx;
 
     // Update is called once per frame
     void Update()
@@ -45,5 +46,12 @@ public class Player : MonoBehaviour
     private void LvlUp()
     {
         lvlUpVfx.Play();
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Enemy")
+        {
+            hurtVfx.Play();
+        }
     }
 }
