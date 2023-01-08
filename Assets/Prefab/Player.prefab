@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 2774309982918639493}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4193767726601760194}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -172,6 +172,9 @@ MonoBehaviour:
   bullet: {fileID: 1768400879129007174, guid: 15c5dda79eb8f3748b1511b0c3138538, type: 3}
   firepoint: {fileID: 19009958364862635}
   lvlUpVfx: {fileID: 0}
+  hurtVfx: {fileID: 0}
+  damage: 10
+  fireRate: 2
 --- !u!1001 &6935818567409797754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,7 +337,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114551767184087894, guid: aa8d6482d70a23445b4b2a928ed1b845, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aa8d6482d70a23445b4b2a928ed1b845, type: 3}
 --- !u!4 &6940541494153701690 stripped
 Transform:
@@ -417,7 +421,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 1bc4a709f24528b40984e62f32e398a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1bc4a709f24528b40984e62f32e398a0, type: 3}
 --- !u!4 &8252473883560823067 stripped
 Transform:

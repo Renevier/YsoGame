@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
@@ -22,8 +21,8 @@ public class EnemiesManager : MonoBehaviour
 
         if (timeForSpawn >= timeBetweenSpawn)
         {
-            SpawnEnemies();
-            timeForSpawn = 0;
+            if (player != null)
+                SpawnEnemies();
         }
     }
 
@@ -33,12 +32,11 @@ public class EnemiesManager : MonoBehaviour
         Vector3 pos = player.transform.position;
         Vector3 newPos = new Vector3(pos.x + offset.x, pos.y, pos.z + offset.y);
 
-        if (Vector3.Distance(player.transform.position, newPos) >= 5f)
-            Instantiate(enemy, newPos, Quaternion.identity);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(player.transform.position, dist);
+        if (Vector3.Distance(player.transform.position, newPos) >= 10f)
+        {
+            GameObject go = Instantiate(enemy, newPos, Quaternion.identity);
+            go.GetComponent<Enemy>().player = player;
+            timeForSpawn = 0;
+        }
     }
 }
